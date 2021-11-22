@@ -25,7 +25,7 @@ describe('Scenarios where authentication is a pre-requirement', () => {
     cy.intercept('POST', '**/prod/billing').as('paymentRequest')
 
     cy.fillSettingsFormAndSubmit()
-    cy.wait(5000)
+    //cy.wait(5000)
     cy.wait('@getNotes')
     cy.wait('@paymentRequest').then(response => {
       expect(response.state).to.equal('Complete')
